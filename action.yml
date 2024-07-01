@@ -100,6 +100,8 @@ runs:
           # And check that tailscaled came up. The CLI will block for a bit waiting
           # for it. And --json will make it exit with status 0 even if we're logged
           # out (as we will be). Without --json it returns an error if we're not up.
+          sleep 10
+          cat ~/tailscaled.log
           sudo -E tailscale status --json >/dev/null
       - name: Connect to Tailscale
         shell: bash
